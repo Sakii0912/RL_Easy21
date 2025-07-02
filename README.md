@@ -24,12 +24,12 @@ lose (reward -1), or draw (reward 0) – is the player with the largest sum.
 
 ## Method 1: Monte Carlo Control
 
-- Run a large number of episodes of the game, keep track of the number of times each state is visited
-- Update value function after the end of each episode, and follow first visit updates.
+- Run a large number of episodes of the game, keep track of the trajectory of the episode
 - Following epsilon greedy policy improvement strategy.
+- Update value function after the end of each episode, and follow first visit updates.
 
 ### Observations
 
-The optimal policy found by the algorithm is to hit till your sum is 17 and after that its better to stick. The value function of the stick action shows that if your sum is greater than 10 and less than 17 ish, its bad to stick, matching the intuition that its bad to stick in that interval since the dealer sticks after his sum is less than 17.
+The optimal policy found by the algorithm is to hit till your sum is 17 and after that its better to stick. The value function of the stick action shows that if your sum is greater than 10 and less than 17 ish, its bad to stick, matching the intuition that its bad to stick in that interval since the dealer sticks after his sum is less than 17. There is also another observation that the algorithm recommends us to stick in the starting, even though intuitively that is very bad. I feel this is due to very less difference in the value functions of hitting and sticking (can be seen from the graph), and can be attributed to outliers in the episodes.
 
 ## Method 2: Temporal-Difference Learning
